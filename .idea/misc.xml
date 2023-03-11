@@ -3,7 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/drawable/card_product.xml" value="0.1455" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/drawable/key_arrow_right.xml" value="0.1455" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/drawable/stok_gudang.xml" value="0.1455" />
         <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/layout/activity_main.xml" value="0.25052083333333336" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/layout/activity_product_sesuai_promo.xml" value="0.2390984811366977" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/layout/activity_promo_alfagift.xml" value="0.25416666666666665" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/layout/item_banner.xml" value="0.2375" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/layout/item_product.xml" value="0.253125" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/WeeklyProject3No2/app/src/main/res/layout/item_promo_alfagift.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>
