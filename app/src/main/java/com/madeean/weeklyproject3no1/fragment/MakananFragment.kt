@@ -1,5 +1,6 @@
 package com.madeean.weeklyproject3no1.fragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -7,13 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.madeean.weeklyproject3no1.DetailProductActivity
 import com.madeean.weeklyproject3no1.R
-import com.madeean.weeklyproject3no1.adapter.AdapterMakanan
-import com.madeean.weeklyproject3no1.database.MakananDatabase
+import com.madeean.weeklyproject3no1.Utils
+import com.madeean.weeklyproject3no1.adapter.AdapterDataProduct
 import com.madeean.weeklyproject3no1.database.MakananDatabase.makananDatabase1
 import com.madeean.weeklyproject3no1.database.MakananDatabase.makananDatabase2
 import com.madeean.weeklyproject3no1.database.MakananDatabase.makananDatabase3
 import com.madeean.weeklyproject3no1.database.MakananDatabase.makananDatabase4
+import com.madeean.weeklyproject3no1.database.MakananDatabase.makananDatabase5
 import com.madeean.weeklyproject3no1.model.ProductModel
 
 class MakananFragment : Fragment() {
@@ -28,7 +31,7 @@ class MakananFragment : Fragment() {
 
 
     private lateinit var rvMakanan: RecyclerView
-    private lateinit var adapter: AdapterMakanan
+    private lateinit var adapter: AdapterDataProduct
     val listData: ArrayList<ProductModel> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,14 +43,24 @@ class MakananFragment : Fragment() {
                 makananDatabase1,
                 makananDatabase2,
                 makananDatabase3,
-                makananDatabase4
+                makananDatabase4,
+                makananDatabase5
             )
         )
 
         rvMakanan.layoutManager = GridLayoutManager(context, 2)
-        adapter = AdapterMakanan(listData)
+        adapter = AdapterDataProduct(listData,requireContext())
         rvMakanan.adapter = adapter
-        
+
+
+        adapter.setOnItemClickListener(object : AdapterDataProduct.OnItemClickListener {
+            override fun goToDetailProduct(position: Int, data: ProductModel) {
+                val intent = Intent(context, DetailProductActivity::class.java)
+                intent.putExtra(Utils.INTENT_DATA, data)
+                startActivity(intent)
+            }
+        })
+
 
     }
 }
