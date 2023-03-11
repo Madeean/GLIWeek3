@@ -4,14 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:padding="15dp"
     tools:context=".MainActivity">
 
     <com.smarteist.autoimageslider.SliderView
-        android:layout_marginVertical="15dp"
+        android:id="@+id/slider_banner"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:sliderAnimationDuration="600"
+        app:sliderIndicatorGravity="bottom|left" />
+
+    <TextView
+        android:id="@+id/tv_lihat_semua_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="10dp"
+        android:drawableEnd="@drawable/key_arrow_right"
+        android:text="Lihat Semua"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/slider_banner" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

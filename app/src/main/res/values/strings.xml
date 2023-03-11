@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Weekly Project 3 No 2</string>
+    <string name="format_harga">Rp. %s</string>
+    <string name="stok_from">Stock dari %s</string>
 </resources>
