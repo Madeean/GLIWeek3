@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+    android:layout_height="280dp"
     android:layout_gravity="center"
     android:layout_margin="5dp"
     app:cardCornerRadius="12dp"
@@ -15,6 +15,7 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/tv_diskon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -34,7 +35,6 @@
             android:src="@drawable/indomie_goreng_png_0" />
 
         <TextView
-            android:textSize="18sp"
             android:id="@+id/tv_nama_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,29 +42,45 @@
             android:layout_marginHorizontal="15dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="Indomie Goreng enak enak enak"
-            android:textColor="@color/black" />
+            android:text="Indomie Goreng\nenak enak enak"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
 
         <TextView
-            android:layout_marginVertical="5dp"
             android:id="@+id/tv_harga_diskon_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@id/tv_harga_product"
             android:layout_marginHorizontal="15dp"
-            android:layout_below="@id/tv_nama_product"
-            android:text="@string/harga_diskon"
+            android:text="Rp 5000"
             android:textColor="@color/gray" />
 
         <TextView
-            android:textStyle="bold"
-            android:layout_below="@id/tv_harga_diskon_product"
             android:id="@+id/tv_harga_product"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_above="@id/stok_from"
             android:layout_marginHorizontal="15dp"
+            android:layout_marginVertical="5dp"
             android:text="Rp. 50.000"
             android:textColor="@color/red"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+
+            android:id="@+id/stok_from"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginHorizontal="15dp"
+            android:drawableStart="@drawable/stok_toko"
+            android:drawablePadding="5dp"
+            android:paddingBottom="10dp"
+            android:text="Stok dari Toko"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            android:textStyle="bold" />
 
     </RelativeLayout>
 
