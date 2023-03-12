@@ -17,26 +17,29 @@ import java.text.DecimalFormatSymbols
 import java.util.*
 import kotlin.collections.ArrayList
 
-class ProductAdapter(
+class PenawaranProductAdapter(
     private var listData: ArrayList<ProductModel>,
     private var context: Context
-): RecyclerView.Adapter<ProductAdapter.ProductAdapterViewHolder>() {
+): RecyclerView.Adapter<PenawaranProductAdapter.ProductAdapterViewHolder>() {
     private lateinit var itemListener: OnItemClickListener
+
     interface OnItemClickListener {
         fun goToDetailProduct(position: Int, data: ProductModel)
     }
+
     fun setOnItemClickListener(listener: OnItemClickListener) {
         itemListener = listener
     }
 
-    class ProductAdapterViewHolder(itemView: View, listener: ProductAdapter.OnItemClickListener, listData: ArrayList<ProductModel>) : RecyclerView.ViewHolder(itemView) {
+    class ProductAdapterViewHolder(itemView: View,listener: OnItemClickListener, listData: ArrayList<ProductModel>) : RecyclerView.ViewHolder(itemView) {
         val ivProduct: ImageView = itemView.findViewById(R.id.iv_image)
         val tvNamaProduct: TextView = itemView.findViewById(R.id.tv_nama_product)
         val tvHargaProduct: TextView = itemView.findViewById(R.id.tv_harga_product)
         val tvDiskon: TextView = itemView.findViewById(R.id.tv_diskon)
         val tvHargaDiskon: TextView = itemView.findViewById(R.id.tv_harga_diskon_product)
         val tvStockFrom: TextView = itemView.findViewById(R.id.stok_from)
-        val cvProdukPenawaran: CardView = itemView.findViewById(R.id.cv_produkList)
+        val cvProdukPenawaran: CardView = itemView.findViewById(R.id.cvPenawaran)
+
         init {
             cvProdukPenawaran.setOnClickListener {
                 listener.goToDetailProduct(adapterPosition, listData[adapterPosition])
@@ -48,7 +51,7 @@ class ProductAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapterViewHolder {
         val view: View =
             LayoutInflater.from(parent.context)
-                .inflate(R.layout.item_product, parent, false)
+                .inflate(R.layout.item_product_penawaran, parent, false)
         return ProductAdapterViewHolder(view,itemListener,listData)
     }
 
