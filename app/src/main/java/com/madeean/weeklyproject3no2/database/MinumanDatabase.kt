@@ -63,4 +63,40 @@ object MinumanDatabase {
         "Gudang",
         10
     )
+    val minumanDatabase7 = ProductModel(
+        "INDOMILK Susu Bubuk Instan Milky 800 g",
+        arrayListOf(
+            "https://cs1.alfacart.com/product/1/A7793280002167_A7793280002167_20230310105548043_base.jpg",
+            "https://cs1.alfacart.com/product/1/A7793280002167_A7793280002167_20230310105550043_base.jpg",
+        ),
+        2000,
+        5000,
+        "produk susu bubuk full cream yang dipersembahkan oleh INDOMILK. Susu bubuk dari INDOMILK diolah dari susu sapi segar berkualitas tinggi yang kemudian diproses dengan menggunakan teknologi modern, sehingga dapat menjaga seluruh kebaikan dan manfaat susu sapi segar. Selain itu, susu bubuk INDOMILK dilengkapi dengan formula OptiNutri yang memiliki kandungan omega 3, sumber protein tinggi, dan juga tinggi akan kalsium, sehingga cocok untuk membantu proses tumbuh dan kembang anak kesayangan Anda. Tersedia dalam kemasan kotak 800 gram yang praktis dengan rasa milky, sehingga sangat cocok untuk diberikan untuk anak pada pagi hari sebelum berangkat kesekolah dan memulai aktivitas seharian. Jaga proses tumbuh dan kembang anak bersama dengan INDOMILK Susu Bubuk Instan Milky 800 g",
+        "Toko",
+        10
+    )
+    val minumanDatabase8 = ProductModel(
+        "FRISIAN FLAG Milky Susu UHT Cokelat 115 ml",
+        arrayListOf(
+            "https://cs1.alfacart.com/product/1/1_A13230001207_20230104144337678_base.jpg",
+            "https://cs1.alfacart.com/product/1/1_A13230001207_20230104144337678_base.jpg",
+        ),
+        2000,
+        5000,
+        "susu segar dalam kemasan dengan varian rasa cokelat. Susu berasal dari sapi peternakan yang dirawat secara baik dan menghasilkan susu segar berkualitas. Susu diolah secara modern menggunakan teknologi modern dari belanda, dengan melalui proses UHT. Susu mengandung nutrisi makro seperi protein, karbohidart, dan lemak serta nutrisi mikro berupa kalsium, mineral, dan multivitamin. Susu memiliki tekstur yang kental, dengan sensasi rasa stroberi manis yang nikmat. Susu dikemas dalam kemasan tetrapak dalam ukuran 115 ml yang dilengkapi dengan sedotan pada kemasan. Cocok untuk cemilan anak anak. Segera beli dan miliki FRISIAN FLAG Milky Susu UHT Cokelat 115 ml sebagai cemilan sehat anak anda.",
+        "Toko",
+        10
+    )
+    val minumanDatabase9 = ProductModel(
+        "Milk Life Susu UHT Plain 200 ml",
+        arrayListOf(
+            "https://alfagift.id/p/milk-life-susu-uht-plain-200-ml-766639",
+            "https://alfagift.id/p/milk-life-susu-uht-plain-200-ml-766639",
+        ),
+        2000,
+        5000,
+        "Milk Life merupakan produk olahan susu segar asli dari PT Global Dairi Alami. Milk Life Susu UHT Plain 200 ml diproduksi dengan proses quality control berstandard terbaik, sehingga menghasilkan susu berkualitas dengan nutrisi yang komplit dan seimbang. Milk Life susu ini memiliki kandungan lemak yang lebih rendah. Milk Life susu mengandung protein, kalsium, dan fosfor yang lebih tinggi guna memaksimalkan penyerapan kalsium ke dalam tubuh. Hadir dengan rasa plain yang segar dan cocok ditambahkan pada minuman kesayangan Anda lainnya maupun diminun secara langsung",
+        "Toko",
+        10
+    )
 }

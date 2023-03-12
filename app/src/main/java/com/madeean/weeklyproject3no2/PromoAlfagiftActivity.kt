@@ -29,11 +29,30 @@ class PromoAlfagiftActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_promo_alfagift)
-        rvPromoAlfagift = findViewById(R.id.rv_promo_alfagift)
 
-        supportActionBar?.title = "Promo Alfagift"
-//        change color toolbar
-        supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.color.red))
+        init()
+        editActionBar()
+        setListBanner()
+        setAdapter()
+
+    }
+
+    private fun setAdapter() {
+        rvPromoAlfagift.layoutManager = LinearLayoutManager(this@PromoAlfagiftActivity)
+        rvPromoAlfagift.adapter = promoAlfagiftAdapter
+
+        promoAlfagiftAdapter.setOnItemClickListener(object :
+            PromoAlfagiftAdapter.OnItemClickListener {
+            override fun goToProduct(position: Int, data: BannerModel) {
+                val intent =
+                    Intent(this@PromoAlfagiftActivity, ProductSesuaiPromoActivity::class.java)
+                intent.putExtra(INTENT_BANNER_TO_PRODUCT, data)
+                startActivity(intent)
+            }
+        })
+    }
+
+    private fun setListBanner() {
         listBanner.addAll(
             listOf(
                 banner1,
@@ -49,19 +68,15 @@ class PromoAlfagiftActivity : AppCompatActivity() {
                 banner10,
             )
         )
-        rvPromoAlfagift.layoutManager = LinearLayoutManager(this@PromoAlfagiftActivity)
         promoAlfagiftAdapter = PromoAlfagiftAdapter(listBanner, this@PromoAlfagiftActivity)
-        rvPromoAlfagift.adapter = promoAlfagiftAdapter
+    }
 
-        promoAlfagiftAdapter.setOnItemClickListener(object :
-            PromoAlfagiftAdapter.OnItemClickListener {
-            override fun goToProduct(position: Int, data: BannerModel) {
-                val intent =
-                    Intent(this@PromoAlfagiftActivity, ProductSesuaiPromoActivity::class.java)
-                intent.putExtra(INTENT_BANNER_TO_PRODUCT, data)
-                startActivity(intent)
-            }
-        })
+    private fun editActionBar() {
+        supportActionBar?.title = getString(R.string.promo_alfagift)
+        supportActionBar?.setBackgroundDrawable(AppCompatResources.getDrawable(this, R.color.red))
+    }
 
+    private fun init(){
+        rvPromoAlfagift = findViewById(R.id.rv_promo_alfagift)
     }
 }
