@@ -4,10 +4,10 @@ import com.madeean.weeklyproject3no1.model.ProductModel
 
 object MakananDatabase {
     val makananDatabase1 = ProductModel(
-        "Indomie Goreng enak enak enak enak",
+        "Indomie Goreng",
         arrayListOf(
             "https://cdn.kibrispdr.org/data/667/indomie-goreng-png-0.png",
-            "https://cdn.kibrispdr.org/data/667/indomie-goreng-png-1.jpg"
+            "https://cdn.kibrispdr.org/data/667/indomie-goreng-png-0.png"
         ),
         2000,
         2000,
