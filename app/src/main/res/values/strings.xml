@@ -8,4 +8,7 @@
     <string name="please_wait">Please wait</string>
     <string name="diskon_persen">%d \%</string>
     <string name="persen">%</string>
+    <string name="indomie_goreng">Indomie Goreng</string>
+    <string name="back_button">back button</string>
+    <string name="deskripsi">Deskripsi</string>
 </resources>

@@ -21,7 +21,8 @@
             android:src="@drawable/back"
             android:translationZ="2dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:contentDescription="@string/back_button" />
 
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/image_slider"
@@ -47,12 +48,12 @@
                 android:id="@+id/tv_stok_from"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:drawableStart="@drawable/stok_toko"
                 android:drawablePadding="5dp"
-                android:text="Stok dari Toko"
+                tools:text="Stok dari Toko"
                 android:textColor="@color/black"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                app:drawableStartCompat="@drawable/stok_toko" />
 
             <TextView
                 android:id="@+id/tv_nama_product"
@@ -62,7 +63,7 @@
                 android:layout_marginVertical="15dp"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Indomie Goreng\nenak enak enak"
+                tools:text="Indomie Goreng\nenak enak enak"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -72,8 +73,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_nama_product"
-                android:layout_marginRight="5dp"
-                android:text="Rp 5000"
+                android:layout_marginEnd="5dp"
+                tools:text="Rp 5000"
                 android:textColor="@color/gray"
                 android:textSize="16sp" />
 
@@ -82,10 +83,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_nama_product"
-                android:layout_toRightOf="@id/tv_harga_diskon_product"
+                android:layout_toEndOf="@id/tv_harga_diskon_product"
                 android:background="@drawable/card_product"
                 android:padding="5dp"
-                android:text="13%"
+                tools:text="13%"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 
@@ -95,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/tv_diskon"
                 android:layout_marginVertical="5dp"
-                android:text="Rp. 50.000"
+                tools:text="Rp. 50.000"
                 android:textColor="@color/red"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -116,7 +117,7 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:textSize="18sp"
-                android:text="Deskripsi"
+                android:text="@string/deskripsi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
