@@ -1,6 +1,5 @@
 package com.madeean.weeklyproject3no1.database
 
-import com.madeean.weeklyproject3no1.R
 import com.madeean.weeklyproject3no1.model.ProductModel
 
 object MakananDatabase {

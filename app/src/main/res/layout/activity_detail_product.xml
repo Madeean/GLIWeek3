@@ -23,20 +23,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="160dp"
-            android:background="@drawable/background_back"
-            android:padding="10dp"
-            android:text="1 / 1"
-            android:textColor="@color/white"
-            android:translationZ="2dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <com.smarteist.autoimageslider.SliderView
             android:id="@+id/image_slider"
             android:layout_width="match_parent"

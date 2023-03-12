@@ -5,4 +5,7 @@
 
     <string name="format_harga">Rp. %s</string>
     <string name="stok_from">Stock dari %s</string>
+    <string name="please_wait">Please wait</string>
+    <string name="diskon_persen">%d \%</string>
+    <string name="persen">%</string>
 </resources>
