@@ -20,23 +20,30 @@ import kotlin.collections.ArrayList
 class ProductAdapter(
     private var listData: ArrayList<ProductModel>,
     private var context: Context
-): RecyclerView.Adapter<ProductAdapter.ProductAdapterViewHolder>() {
+) : RecyclerView.Adapter<ProductAdapter.ProductAdapterViewHolder>() {
     private lateinit var itemListener: OnItemClickListener
+
     interface OnItemClickListener {
         fun goToDetailProduct(position: Int, data: ProductModel)
     }
+
     fun setOnItemClickListener(listener: OnItemClickListener) {
         itemListener = listener
     }
 
-    class ProductAdapterViewHolder(itemView: View, listener: ProductAdapter.OnItemClickListener, listData: ArrayList<ProductModel>) : RecyclerView.ViewHolder(itemView) {
+    class ProductAdapterViewHolder(
+        itemView: View,
+        listener: OnItemClickListener,
+        listData: ArrayList<ProductModel>
+    ) : RecyclerView.ViewHolder(itemView) {
         val ivProduct: ImageView = itemView.findViewById(R.id.iv_image)
         val tvNamaProduct: TextView = itemView.findViewById(R.id.tv_nama_product)
         val tvHargaProduct: TextView = itemView.findViewById(R.id.tv_harga_product)
         val tvDiskon: TextView = itemView.findViewById(R.id.tv_diskon)
         val tvHargaDiskon: TextView = itemView.findViewById(R.id.tv_harga_diskon_product)
         val tvStockFrom: TextView = itemView.findViewById(R.id.stok_from)
-        val cvProdukPenawaran: CardView = itemView.findViewById(R.id.cv_produkList)
+        private val cvProdukPenawaran: CardView = itemView.findViewById(R.id.cv_produkList)
+
         init {
             cvProdukPenawaran.setOnClickListener {
                 listener.goToDetailProduct(adapterPosition, listData[adapterPosition])
@@ -49,7 +56,7 @@ class ProductAdapter(
         val view: View =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_product, parent, false)
-        return ProductAdapterViewHolder(view,itemListener,listData)
+        return ProductAdapterViewHolder(view, itemListener, listData)
     }
 
     override fun onBindViewHolder(holder: ProductAdapterViewHolder, position: Int) {
@@ -74,7 +81,7 @@ class ProductAdapter(
 
             val hargaAsli = listData[position].normalPrice
             val hargaDiskon = listData[position].specialPrice ?: 0
-            var finalDiskon: Int = 0
+            var finalDiskon = 0
 
             try {
                 val hitungDiskon: Double = (hargaAsli - hargaDiskon) / hargaAsli.toDouble() * 100
@@ -86,7 +93,10 @@ class ProductAdapter(
 //            val diskon = ((listData[position].normalPrice - (listData[position].specialPrice
 //                ?: 0)) / listData[position].normalPrice) * 100
 
-            holder.tvDiskon.text = "$finalDiskon%"
+            holder.tvDiskon.text = buildString {
+        append(finalDiskon)
+        append("%")
+    }
         } else {
             holder.tvHargaDiskon.visibility = View.INVISIBLE
             holder.tvDiskon.visibility = View.INVISIBLE
@@ -102,28 +112,31 @@ class ProductAdapter(
 
         holder.tvStockFrom.text =
             context.getString(R.string.stok_from, listData[position].stockFrom)
-        if (listData[position].stockFrom == "Toko") {
-//            set drawable start
-            holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_toko,
-                0,
-                0,
-                0
-            )
-        } else if (listData[position].stockFrom == "Gudang") {
-            holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_gudang,
-                0,
-                0,
-                0
-            )
-        } else {
-            holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_private_marketplace,
-                0,
-                0,
-                0
-            )
+        when (listData[position].stockFrom) {
+            "Toko" -> {
+                holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_toko,
+                    0,
+                    0,
+                    0
+                )
+            }
+            "Gudang" -> {
+                holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_gudang,
+                    0,
+                    0,
+                    0
+                )
+            }
+            else -> {
+                holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_private_marketplace,
+                    0,
+                    0,
+                    0
+                )
+            }
         }
 
         Glide.with(context)

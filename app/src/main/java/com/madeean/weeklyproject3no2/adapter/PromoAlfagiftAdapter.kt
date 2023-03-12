@@ -9,10 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.madeean.weeklyproject3no2.R
 import com.madeean.weeklyproject3no2.model.BannerModel
-import com.madeean.weeklyproject3no2.model.ProductModel
 
 class PromoAlfagiftAdapter(
-    val listBanner: ArrayList<BannerModel>,
+    private val listBanner: ArrayList<BannerModel>,
     val context: Context
 ) : RecyclerView.Adapter<PromoAlfagiftAdapter.PromoAlfagiftViewHolder>() {
 

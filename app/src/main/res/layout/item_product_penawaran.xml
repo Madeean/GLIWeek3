@@ -19,12 +19,13 @@
             android:id="@+id/tv_diskon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:background="@drawable/card_diskon_product2"
             android:padding="5dp"
-            android:text="13%"
+            tools:text="13%"
             android:textColor="@color/white"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            tools:ignore="RelativeOverlap" />
 
         <ImageView
             android:id="@+id/iv_image"
@@ -35,7 +36,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginEnd="15dp"
             android:layout_marginBottom="8dp"
-            android:contentDescription="Indomie Goreng"
+            android:contentDescription="@string/indomie_goreng"
             android:src="@drawable/indomie_goreng_png_0" />
 
         <TextView
@@ -46,7 +47,7 @@
             android:layout_marginHorizontal="15dp"
             android:ellipsize="end"
             android:maxLines="2"
-            android:text="Indomie Goreng enak enak enak"
+            tools:text="Indomie Goreng enak enak enak"
             android:textColor="@color/black"
             android:textSize="13sp" />
 
@@ -57,7 +58,7 @@
             android:layout_above="@id/tv_harga_product"
             android:layout_marginHorizontal="15dp"
             android:textSize="12sp"
-            android:text="Rp 5000"
+            tools:text="Rp 5000"
             android:textColor="@color/gray" />
 
         <TextView
@@ -68,7 +69,7 @@
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="5dp"
-            android:text="Rp. 50.000"
+            tools:text="Rp. 50.000"
             android:textColor="@color/red"
             android:textSize="15sp"
             android:textStyle="bold" />
@@ -80,14 +81,15 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginHorizontal="15dp"
-            android:drawableStart="@drawable/stok_toko"
             android:drawablePadding="5dp"
             android:paddingBottom="5dp"
-            android:text="Stok dari Toko"
+            tools:text="Stok dari Toko"
             android:textColor="@color/black"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:gravity="center_vertical"/>
+            android:gravity="center_vertical"
+            app:drawableStartCompat="@drawable/stok_toko"
+            tools:ignore="SmallSp" />
 
     </RelativeLayout>
 

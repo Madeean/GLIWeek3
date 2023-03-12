@@ -23,7 +23,8 @@
             android:adjustViewBounds="true"
             android:scaleType="centerCrop"
 
-            android:src="@drawable/banner1" />
+            android:src="@drawable/banner1"
+            android:contentDescription="@string/promo" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

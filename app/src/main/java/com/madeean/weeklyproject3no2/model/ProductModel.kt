@@ -11,5 +11,6 @@ data class ProductModel(
     val normalPrice: Long,
     val productDescription: String,
     val stockFrom: String,
-    val stock: Int
+    val stock: Int,
+    val officialStore:String
 ):Parcelable
