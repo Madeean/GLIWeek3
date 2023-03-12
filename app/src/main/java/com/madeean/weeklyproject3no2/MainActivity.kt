@@ -125,6 +125,10 @@ class MainActivity : AppCompatActivity() {
                 OfficialStoreDatabase.Store5,
                 OfficialStoreDatabase.Store6,
                 OfficialStoreDatabase.Store7,
+                OfficialStoreDatabase.Store6,
+                OfficialStoreDatabase.Store7,
+                OfficialStoreDatabase.Store6,
+                OfficialStoreDatabase.Store7,
                 OfficialStoreDatabase.Store8
             )
         )

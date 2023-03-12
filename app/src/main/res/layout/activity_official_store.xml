@@ -4,8 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".OfficialStoreActivity">
+    tools:context=".OfficialStoreActivity"
+    android:layout_marginHorizontal="15dp"
+    >
 
+    <TextView
+        android:id="@+id/tv_officialStoreTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="30dp"
+        android:text="Official Store"
+        android:textColor="@color/darkGrey"
+        android:textStyle="bold"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_official_store_list"
+        tools:listitem="@layout/item_official_store"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_officialStoreTitle" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
