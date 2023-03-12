@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.madeean.weeklyproject3no2.adapter.ProductAdapter
-import com.madeean.weeklyproject3no2.database.BannerDatabase
+import com.madeean.weeklyproject3no2.database.MakananDatabase
 import com.madeean.weeklyproject3no2.database.MinumanDatabase
 import com.madeean.weeklyproject3no2.model.BannerModel
 import com.madeean.weeklyproject3no2.model.ProductModel
@@ -34,10 +34,39 @@ class ProductSesuaiPromoActivity : AppCompatActivity() {
 
         when (banner?.namaPromo) {
             "Minuman Segar" -> showMinumanSegar()
+            "Kebutuhan Dapur Bunda" -> showKebutuhanDapurBunda()
+            "Snack" -> showSnack()
             else -> return
         }
 
 
+    }
+
+    private fun showSnack() {
+        listData.addAll(
+            listOf(
+                MakananDatabase.makananDatabase6,
+                MakananDatabase.makananDatabase7,
+                MakananDatabase.makananDatabase8,
+                MakananDatabase.makananDatabase9,
+            )
+        )
+        Glide.with(this).load(banner?.image).into(ivBannerProduct)
+        setAdapter(listData)
+    }
+
+    private fun showKebutuhanDapurBunda() {
+        listData.addAll(
+            listOf(
+                MakananDatabase.makananDatabase1,
+                MakananDatabase.makananDatabase2,
+                MakananDatabase.makananDatabase3,
+                MakananDatabase.makananDatabase4,
+                MakananDatabase.makananDatabase5,
+            )
+        )
+        Glide.with(this).load(banner?.image).into(ivBannerProduct)
+        setAdapter(listData)
     }
 
     private fun showMinumanSegar() {
@@ -51,10 +80,15 @@ class ProductSesuaiPromoActivity : AppCompatActivity() {
             )
         )
         Glide.with(this).load(banner?.image).into(ivBannerProduct)
+        setAdapter(listData)
+
+    }
+
+    private fun setAdapter(listData: ArrayList<ProductModel>) {
         rvProductSesuaiPromo.layoutManager = GridLayoutManager(this, 2)
         adapter = ProductAdapter(listData, this)
         rvProductSesuaiPromo.setHasFixedSize(true)
         rvProductSesuaiPromo.adapter = adapter
-
     }
+
 }
