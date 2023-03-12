@@ -20,7 +20,8 @@
             android:exported="false" />
         <activity
             android:name=".OfficialStoreActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Official Store"/>
         <activity
             android:name=".DetailProductActivity"
             android:exported="false" />
