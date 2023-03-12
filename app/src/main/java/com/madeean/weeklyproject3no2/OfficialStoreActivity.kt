@@ -18,8 +18,12 @@ class OfficialStoreActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_official_store)
-        rvOfficialStore = findViewById(R.id.rv_official_store_list)
+        init()
+        setData()
+        setItems(listData)
+    }
 
+    private fun setData() {
         listData.addAll(
             arrayListOf(
                 OfficialStoreDatabase.Store1,
@@ -41,7 +45,10 @@ class OfficialStoreActivity : AppCompatActivity() {
                 OfficialStoreDatabase.Store8
             )
         )
-        setItems(listData)
+    }
+
+    private fun init() {
+        rvOfficialStore = findViewById(R.id.rv_official_store_list)
     }
 
     private fun setItems(listData: ArrayList<StoreModel>) {

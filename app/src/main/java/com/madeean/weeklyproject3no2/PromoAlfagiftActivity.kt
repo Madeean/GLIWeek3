@@ -1,7 +1,6 @@
 package com.madeean.weeklyproject3no2
 
 import android.content.Intent
-import android.nfc.NfcAdapter.EXTRA_DATA
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.content.res.AppCompatResources
@@ -9,7 +8,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madeean.weeklyproject3no2.Utils.INTENT_BANNER_TO_PRODUCT
 import com.madeean.weeklyproject3no2.adapter.PromoAlfagiftAdapter
-import com.madeean.weeklyproject3no2.database.BannerDatabase
 import com.madeean.weeklyproject3no2.database.BannerDatabase.banner1
 import com.madeean.weeklyproject3no2.database.BannerDatabase.banner10
 import com.madeean.weeklyproject3no2.database.BannerDatabase.banner2

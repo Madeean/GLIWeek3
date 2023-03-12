@@ -1,5 +1,6 @@
 package com.madeean.weeklyproject3no2
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
@@ -51,7 +52,7 @@ class ProductSesuaiPromoActivity : AppCompatActivity() {
         }
     }
 
-    private fun init(){
+    private fun init() {
         rvProductSesuaiPromo = findViewById(R.id.rv_product_sesuai_promo)
         ivBannerProduct = findViewById(R.id.iv_banner_product)
     }
@@ -202,6 +203,19 @@ class ProductSesuaiPromoActivity : AppCompatActivity() {
         adapter = ProductAdapter(listData, this)
         rvProductSesuaiPromo.setHasFixedSize(true)
         rvProductSesuaiPromo.adapter = adapter
+
+
+        adapter.setOnItemClickListener(object : ProductAdapter.OnItemClickListener {
+            override fun goToDetailProduct(position: Int, data: ProductModel) {
+                val intent = Intent(
+                    this@ProductSesuaiPromoActivity,
+                    DetailProductActivity::class.java
+                )
+                intent.putExtra(Utils.INTENT_DATA, data)
+                startActivity(intent)
+            }
+        })
     }
+
 
 }

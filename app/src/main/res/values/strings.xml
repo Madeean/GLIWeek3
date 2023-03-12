@@ -3,4 +3,9 @@
     <string name="format_harga">Rp. %s</string>
     <string name="stok_from">Stock dari %s</string>
     <string name="promo_alfagift">Promo Alfagift</string>
+    <string name="promo">Promo</string>
+    <string name="indomie_goreng">Indomie Goreng</string>
+    <string name="lihat_semua">Lihat Semua</string>
+    <string name="background_penawaran">background penawaran</string>
+    <string name="official_store">Official Store</string>
 </resources>

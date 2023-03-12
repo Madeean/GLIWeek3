@@ -38,7 +38,7 @@ class PenawaranProductAdapter(
         val tvDiskon: TextView = itemView.findViewById(R.id.tv_diskon)
         val tvHargaDiskon: TextView = itemView.findViewById(R.id.tv_harga_diskon_product)
         val tvStockFrom: TextView = itemView.findViewById(R.id.stok_from)
-        val cvProdukPenawaran: CardView = itemView.findViewById(R.id.cvPenawaran)
+        private val cvProdukPenawaran: CardView = itemView.findViewById(R.id.cvPenawaran)
 
         init {
             cvProdukPenawaran.setOnClickListener {
@@ -77,7 +77,7 @@ class PenawaranProductAdapter(
 
             val hargaAsli = listData[position].normalPrice
             val hargaDiskon = listData[position].specialPrice ?: 0
-            var finalDiskon: Int = 0
+            var finalDiskon = 0
 
             try {
                 val hitungDiskon: Double = (hargaAsli - hargaDiskon) / hargaAsli.toDouble() * 100
@@ -89,7 +89,10 @@ class PenawaranProductAdapter(
 //            val diskon = ((listData[position].normalPrice - (listData[position].specialPrice
 //                ?: 0)) / listData[position].normalPrice) * 100
 
-            holder.tvDiskon.text = "$finalDiskon%"
+            holder.tvDiskon.text = buildString {
+        append(finalDiskon)
+        append("%")
+    }
         } else {
             holder.tvHargaDiskon.visibility = View.INVISIBLE
             holder.tvDiskon.visibility = View.INVISIBLE
@@ -105,28 +108,31 @@ class PenawaranProductAdapter(
 
         holder.tvStockFrom.text =
             context.getString(R.string.stok_from, listData[position].stockFrom)
-        if (listData[position].stockFrom == "Toko") {
-//            set drawable start
-            holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_toko,
-                0,
-                0,
-                0
-            )
-        } else if (listData[position].stockFrom == "Gudang") {
-            holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_gudang,
-                0,
-                0,
-                0
-            )
-        } else {
-            holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_private_marketplace,
-                0,
-                0,
-                0
-            )
+        when (listData[position].stockFrom) {
+            "Toko" -> {
+                holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_toko,
+                    0,
+                    0,
+                    0
+                )
+            }
+            "Gudang" -> {
+                holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_gudang,
+                    0,
+                    0,
+                    0
+                )
+            }
+            else -> {
+                holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_private_marketplace,
+                    0,
+                    0,
+                    0
+                )
+            }
         }
 
         Glide.with(context)

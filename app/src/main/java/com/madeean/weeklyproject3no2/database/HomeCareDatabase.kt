@@ -13,7 +13,7 @@ object HomeCareDatabase {
         10000,
         "\"Soklin Lantai\" adalah merek produk pembersih lantai yang populer di Indonesia. Produk ini diklaim dapat membersihkan dan menghilangkan noda serta kotoran pada lantai, dengan cepat dan mudah. Soklin Lantai tersedia dalam beberapa varian, seperti varian cair dan serbuk, serta memiliki aroma yang beragam, seperti lemon, lavender, dan bunga segar. Selain itu, produk ini juga diklaim dapat membersihkan lantai tanpa meninggalkan residu atau bekas, sehingga lantai akan terlihat bersih dan segar setelah dibersihkan dengan Soklin Lantai. Soklin Lantai dapat digunakan untuk membersihkan berbagai jenis lantai, seperti keramik, marmer, granit, atau lantai kayu",
         "Toko",
-        10
+        10,"Mamy Poko"
     )
     val homeCareDatabase2 = ProductModel(
         "HIT",
@@ -25,7 +25,7 @@ object HomeCareDatabase {
         12000,
         "obat anti nyamuk dan kecoa dalam kemasan botol semprot. Efektif mencegah dari nyamuk aedes aegypti, musca domestica, culex quinquefasciatus, periplante americana, dan blatela germanica. Hadir tanpa asap dan abu, akan menemani tidur yang nyaman sepanjang malam. Aroma orange yang natural dan menyegarkan akan memberikan istirahat yang baik. Tersedia dalam kemasan botol aerosol 600 ml.",
         "Toko",
-        10
+        10,"Mamy Poko"
     )
     val homeCareDatabase3 = ProductModel(
         "Baygon",
@@ -37,7 +37,7 @@ object HomeCareDatabase {
         28000,
         "Baygon Aerosol dengan wangi natural Eucalyptus Oil yang menenangkan dan menyejukkan, Membunuh serangga bahkan nyamuk yang tersembunyi, daya kerja tahan lama. Baygon anti nyamuk dengan formula yang mampu melumpuhkan dengan cepat dan terbukti sangat efektif membunuh nyamuk demam berdarah (Aedes Aegypty)",
         "Toko",
-        10
+        10,"ABC"
     )
     val homeCareDatabase4 = ProductModel(
         "Daia",
@@ -49,6 +49,6 @@ object HomeCareDatabase {
         38000,
         "Deterjen bubuk dengan aroma kesegaran bunga, dengan teknologi Dual Scent, teknologi kapsulasi parfum untuk pakaian lebih harum dan wangi yang tahan lama. Dilengkapi dengan 6 keunggulan yang mampu membersihkan pakaian secara all out, dan menjaga warna tetap stand out. Mampu membersihkan pakaian secara all out, busa melimpah, membuat warna pakaian semakin cerah dan cemerlang, lembut ditangan dan tidak bau apek. Tersedia dalam kemasan bag 1,8 kg",
         "Toko",
-        10
+        10,"ABC"
     )
 }

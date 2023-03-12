@@ -25,10 +25,10 @@ class OfficialStoreAdapter(
         itemListener = listener
     }
 
-    class OfficialStoreAdapterViewHolder(itemView: View, listener: OfficialStoreAdapter.OnItemClickListener, listData: ArrayList<StoreModel>) : RecyclerView.ViewHolder(itemView) {
+    class OfficialStoreAdapterViewHolder(itemView: View, listener: OnItemClickListener, listData: ArrayList<StoreModel>) : RecyclerView.ViewHolder(itemView) {
         val ivStore: ImageView = itemView.findViewById(R.id.iv_store_logo)
         val tvStore: TextView = itemView.findViewById(R.id.tv_nama_store)
-        val cvStoreList: CardView = itemView.findViewById(R.id.cv_official_store)
+        private val cvStoreList: CardView = itemView.findViewById(R.id.cv_official_store)
         init {
             cvStoreList.setOnClickListener {
                 listener.goToDetailStore(adapterPosition, listData[adapterPosition])

@@ -14,7 +14,7 @@ import com.madeean.weeklyproject3no2.model.BannerModel
 import com.smarteist.autoimageslider.SliderViewAdapter
 
 class BannerAdapter(
-    var listBanner: ArrayList<BannerModel>, var context: Context
+    private var listBanner: ArrayList<BannerModel>, var context: Context
 ) : SliderViewAdapter<BannerAdapter.BannerAdapterViewHolder>() {
 
 
