@@ -19,10 +19,11 @@
         <entry key="..\:/MAGANG/alfagift/AndroidAcademy/Weeklyproject3No1/app/src/main/res/layout/fragment_semua.xml" value="0.21979166666666666" />
         <entry key="..\:/MAGANG/alfagift/AndroidAcademy/Weeklyproject3No1/app/src/main/res/layout/item_data_image_slider.xml" value="0.21770833333333334" />
         <entry key="..\:/MAGANG/alfagift/AndroidAcademy/Weeklyproject3No1/app/src/main/res/layout/item_data_makanan.xml" value="0.21041666666666667" />
+        <entry key="..\:/MAGANG/alfagift/AndroidAcademy/Weeklyproject3No1/app/src/main/res/layout/layout_loading_dialog.xml" value="0.22239583333333332" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

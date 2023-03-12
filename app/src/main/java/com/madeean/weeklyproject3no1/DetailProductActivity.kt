@@ -1,13 +1,9 @@
 package com.madeean.weeklyproject3no1
 
-import android.content.Intent
-import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.Window
 import android.widget.ImageView
 import android.widget.TextView
 import com.madeean.weeklyproject3no1.Utils.INTENT_DATA
@@ -31,13 +27,49 @@ class DetailProductActivity : AppCompatActivity() {
     private lateinit var tvDeskripsi: TextView
     private lateinit var ivBack: ImageView
 
-    fun formatter(n: Long) =
+    private fun formatter(n: Long): String =
         DecimalFormat("#,###", DecimalFormatSymbols(Locale.GERMANY)).format(n)
 
+    private var image: ArrayList<String> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_product)
+
+        init()
+        editActionBar()
+        getData()
+        setAdapter()
+
+        ivBack.setOnClickListener {
+            finish()
+        }
+
+
+    }
+
+    private fun setAdapter() {
+        adapter = SliderImageAdapter(image, this@DetailProductActivity)
+        slider.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
+        slider.setSliderAdapter(adapter)
+        slider.scrollTimeInSec = 3
+        slider.startAutoCycle()
+    }
+
+    private fun getData() {
+        val data = intent.getParcelableExtra<ProductModel>(INTENT_DATA)
+
+        if (data != null) {
+            image = data.productImage
+            setView(data)
+        }
+    }
+
+    private fun editActionBar() {
+        supportActionBar?.hide()
+    }
+
+    private fun init() {
         tvDeskripsi = findViewById(R.id.tv_deskripsi)
         tvHargaProduct = findViewById(R.id.tv_harga_product)
         tvDiskon = findViewById(R.id.tv_diskon)
@@ -45,33 +77,7 @@ class DetailProductActivity : AppCompatActivity() {
         tvNamaProduct = findViewById(R.id.tv_nama_product)
         tvStokFrom = findViewById(R.id.tv_stok_from)
         ivBack = findViewById(R.id.iv_back)
-
         slider = findViewById(R.id.image_slider)
-
-        supportActionBar?.hide()
-//        set action bar transparent
-
-
-        val data = intent.getParcelableExtra<ProductModel>(INTENT_DATA)
-        var image: ArrayList<String> = arrayListOf()
-        if (data != null) {
-            image = data.productImage
-            setView(data)
-        }
-
-        adapter = SliderImageAdapter(image, this@DetailProductActivity)
-        slider.autoCycleDirection = SliderView.LAYOUT_DIRECTION_LTR
-        slider.setSliderAdapter(adapter)
-        slider.scrollTimeInSec = 3
-        slider.startAutoCycle()
-
-        ivBack.setOnClickListener {
-
-
-            finish()
-        }
-
-
     }
 
     private fun setView(data: ProductModel) {
@@ -92,7 +98,7 @@ class DetailProductActivity : AppCompatActivity() {
 
             val hargaAsli = data.normalPrice
             val hargaDiskon = data.specialPrice ?: 0
-            var finalDiskon: Int = 0
+            var finalDiskon = 0
 
             try {
                 val hitungDiskon: Double = (hargaAsli - hargaDiskon) / hargaAsli.toDouble() * 100
@@ -101,7 +107,10 @@ class DetailProductActivity : AppCompatActivity() {
                 e.printStackTrace()
             }
 
-            tvDiskon.text = "$finalDiskon%"
+            tvDiskon.text = buildString {
+                append(finalDiskon)
+                append("%")
+            }
         } else {
             tvHargaDiskonProduct.visibility = View.INVISIBLE
             tvDiskon.visibility = View.INVISIBLE
@@ -118,28 +127,32 @@ class DetailProductActivity : AppCompatActivity() {
         tvStokFrom.text =
             getString(R.string.stok_from, data.stockFrom)
 
-        if (data.stockFrom == "Toko") {
-//            set drawable start
-            tvStokFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_toko,
-                0,
-                0,
-                0
-            )
-        } else if (data.stockFrom == "Gudang") {
-            tvStokFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_gudang,
-                0,
-                0,
-                0
-            )
-        } else {
-            tvStokFrom.setCompoundDrawablesWithIntrinsicBounds(
-                R.drawable.stok_private_marketplace,
-                0,
-                0,
-                0
-            )
+        when (data.stockFrom) {
+            "Toko" -> {
+                //            set drawable start
+                tvStokFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_toko,
+                    0,
+                    0,
+                    0
+                )
+            }
+            "Gudang" -> {
+                tvStokFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_gudang,
+                    0,
+                    0,
+                    0
+                )
+            }
+            else -> {
+                tvStokFrom.setCompoundDrawablesWithIntrinsicBounds(
+                    R.drawable.stok_private_marketplace,
+                    0,
+                    0,
+                    0
+                )
+            }
         }
 
     }

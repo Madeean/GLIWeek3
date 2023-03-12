@@ -32,22 +32,25 @@ class MakananFragment : Fragment() {
 
     private lateinit var rvMakanan: RecyclerView
     private lateinit var adapter: AdapterDataProduct
-    val listData: ArrayList<ProductModel> = ArrayList()
+    private val listData: ArrayList<ProductModel> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        init(view)
+        setData()
+        setAdapter()
+
+
+
+
+    }
+    private fun init(view:View){
         rvMakanan = view.findViewById(R.id.rv_makanan)
 
-        listData.addAll(
-            listOf(
-                makananDatabase1,
-                makananDatabase2,
-                makananDatabase3,
-                makananDatabase4,
-                makananDatabase5
-            )
-        )
+    }
 
+    private fun setAdapter() {
         rvMakanan.layoutManager = GridLayoutManager(context, 2)
         adapter = AdapterDataProduct(listData,requireContext())
         rvMakanan.adapter = adapter
@@ -60,7 +63,19 @@ class MakananFragment : Fragment() {
                 startActivity(intent)
             }
         })
+    }
+
+    private fun setData() {
 
 
+        listData.addAll(
+            listOf(
+                makananDatabase1,
+                makananDatabase2,
+                makananDatabase3,
+                makananDatabase4,
+                makananDatabase5
+            )
+        )
     }
 }

@@ -20,14 +20,21 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        tabLayout = findViewById(R.id.tab_layout)
-        viewPager = findViewById(R.id.view_pager)
+        init()
+        setTabAdapter()
 
+    }
+
+    private fun setTabAdapter() {
         val tabAdapter = TabAdapter(this)
         viewPager.adapter = tabAdapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             tab.text = TAB_TITLES[position]
         }.attach()
+    }
 
+    private fun init() {
+        tabLayout = findViewById(R.id.tab_layout)
+        viewPager = findViewById(R.id.view_pager)
     }
 }

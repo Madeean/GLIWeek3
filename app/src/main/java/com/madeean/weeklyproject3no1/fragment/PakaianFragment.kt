@@ -12,7 +12,6 @@ import com.madeean.weeklyproject3no1.DetailProductActivity
 import com.madeean.weeklyproject3no1.R
 import com.madeean.weeklyproject3no1.Utils
 import com.madeean.weeklyproject3no1.adapter.AdapterDataProduct
-import com.madeean.weeklyproject3no1.database.MinumanDatabase
 import com.madeean.weeklyproject3no1.database.PakaianDatabase
 import com.madeean.weeklyproject3no1.model.ProductModel
 
@@ -24,28 +23,25 @@ class PakaianFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_pakaian, container, false)
     }
 
     private lateinit var rvMakanan: RecyclerView
     private lateinit var adapter: AdapterDataProduct
-    val listData: ArrayList<ProductModel> = ArrayList()
+    private val listData: ArrayList<ProductModel> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        init(view)
 
-        rvMakanan = view.findViewById(R.id.rv_makanan)
+        setData()
 
-        listData.addAll(
-            listOf(
-                PakaianDatabase.pakaianDatabase1,
-                PakaianDatabase.pakaianDatabase2,
-                PakaianDatabase.pakaianDatabase3,
-                PakaianDatabase.pakaianDatabase4,
-            )
-        )
+        setAdapter()
 
+
+    }
+
+    private fun setAdapter() {
         rvMakanan.layoutManager = GridLayoutManager(context, 2)
         adapter = AdapterDataProduct(listData, requireContext())
         rvMakanan.adapter = adapter
@@ -60,6 +56,20 @@ class PakaianFragment : Fragment() {
         })
     }
 
+    private fun setData() {
+        listData.addAll(
+            listOf(
+                PakaianDatabase.pakaianDatabase1,
+                PakaianDatabase.pakaianDatabase2,
+                PakaianDatabase.pakaianDatabase3,
+                PakaianDatabase.pakaianDatabase4,
+            )
+        )
+    }
+
+    private fun init(view:View){
+        rvMakanan = view.findViewById(R.id.rv_makanan)
+    }
 
 
 }

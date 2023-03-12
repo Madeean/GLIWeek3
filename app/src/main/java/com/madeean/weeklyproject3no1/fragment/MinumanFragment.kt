@@ -31,23 +31,22 @@ class MinumanFragment : Fragment() {
 
     private lateinit var rvMakanan: RecyclerView
     private lateinit var adapter: AdapterDataProduct
-    val listData: ArrayList<ProductModel> = ArrayList()
+    private val listData: ArrayList<ProductModel> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        init(view)
+        setData()
+        setAdapter()
 
+
+
+
+    }
+    private fun init(view:View){
         rvMakanan = view.findViewById(R.id.rv_makanan)
-
-        listData.addAll(
-            listOf(
-                MinumanDatabase.minumanDatabase1,
-                MinumanDatabase.minumanDatabase2,
-                MinumanDatabase.minumanDatabase3,
-                MinumanDatabase.minumanDatabase4,
-                MinumanDatabase.minumanDatabase5
-            )
-        )
-
+    }
+    private fun setAdapter(){
         rvMakanan.layoutManager = GridLayoutManager(context, 2)
         adapter = AdapterDataProduct(listData, requireContext())
         rvMakanan.adapter = adapter
@@ -59,7 +58,18 @@ class MinumanFragment : Fragment() {
                 startActivity(intent)
             }
         })
+    }
 
+    private fun setData(){
+        listData.addAll(
+            listOf(
+                MinumanDatabase.minumanDatabase1,
+                MinumanDatabase.minumanDatabase2,
+                MinumanDatabase.minumanDatabase3,
+                MinumanDatabase.minumanDatabase4,
+                MinumanDatabase.minumanDatabase5
+            )
+        )
     }
 
 

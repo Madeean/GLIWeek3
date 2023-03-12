@@ -13,7 +13,6 @@ import com.madeean.weeklyproject3no1.R
 import com.madeean.weeklyproject3no1.Utils
 import com.madeean.weeklyproject3no1.adapter.AdapterDataProduct
 import com.madeean.weeklyproject3no1.database.ElektronikDatabase
-import com.madeean.weeklyproject3no1.database.PakaianDatabase
 import com.madeean.weeklyproject3no1.model.ProductModel
 
 
@@ -29,22 +28,25 @@ class ElektronikFragment : Fragment() {
 
     private lateinit var rvMakanan: RecyclerView
     private lateinit var adapter: AdapterDataProduct
-    val listData: ArrayList<ProductModel> = ArrayList()
+    private val listData: ArrayList<ProductModel> = ArrayList()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        init(view)
+        setData()
+        setAdapter()
+
+
+
+
+    }
+    private fun init(view:View){
         rvMakanan = view.findViewById(R.id.rv_makanan)
 
-        listData.addAll(
-            listOf(
-                ElektronikDatabase.elektronikDatabase1,
-                ElektronikDatabase.elektronikDatabase2,
-                ElektronikDatabase.elektronikDatabase3,
-                ElektronikDatabase.elektronikDatabase4,
-            )
-        )
+    }
 
+    private fun setAdapter() {
         rvMakanan.layoutManager = GridLayoutManager(context, 2)
         adapter = AdapterDataProduct(listData, requireContext())
         rvMakanan.adapter = adapter
@@ -56,6 +58,17 @@ class ElektronikFragment : Fragment() {
                 startActivity(intent)
             }
         })
+    }
+
+    private fun setData() {
+        listData.addAll(
+            listOf(
+                ElektronikDatabase.elektronikDatabase1,
+                ElektronikDatabase.elektronikDatabase2,
+                ElektronikDatabase.elektronikDatabase3,
+                ElektronikDatabase.elektronikDatabase4,
+            )
+        )
     }
 
 
