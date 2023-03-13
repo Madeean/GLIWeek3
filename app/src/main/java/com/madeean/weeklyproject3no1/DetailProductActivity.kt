@@ -6,7 +6,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.madeean.weeklyproject3no1.Utils.INTENT_DATA
 import com.madeean.weeklyproject3no1.adapter.SliderImageAdapter
 import com.madeean.weeklyproject3no1.model.ProductModel
@@ -102,7 +101,7 @@ class DetailProductActivity : AppCompatActivity() {
 
 
 
-        if ((data.specialPrice ?: 0) < data.normalPrice) {
+        if ((data.specialPrice) < data.normalPrice) {
             tvHargaDiskonProduct.text =
                 getString(R.string.format_harga, formatter(data.normalPrice))
             tvHargaDiskonProduct.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
@@ -110,13 +109,13 @@ class DetailProductActivity : AppCompatActivity() {
             tvHargaProduct.text =
                 getString(
                     R.string.format_harga, formatter(
-                        data.specialPrice ?: 0
+                        data.specialPrice
                     )
                 )
 
 
             val hargaAsli = data.normalPrice
-            val hargaDiskon = data.specialPrice ?: 0
+            val hargaDiskon = data.specialPrice
             var finalDiskon = 0
 
             try {
@@ -139,7 +138,6 @@ class DetailProductActivity : AppCompatActivity() {
             getString(
                 R.string.format_harga, formatter(
                     data.specialPrice
-                        ?: 0
                 )
             )
 
