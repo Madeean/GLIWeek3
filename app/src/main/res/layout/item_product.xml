@@ -22,10 +22,11 @@
             android:layout_alignParentEnd="true"
             android:background="@drawable/card_diskon_product"
             android:padding="5dp"
-            tools:text="13%"
+            android:translationZ="2dp"
             android:textColor="@color/white"
             android:textSize="16sp"
-            tools:ignore="RelativeOverlap" />
+            tools:ignore="RelativeOverlap"
+            tools:text="13%" />
 
         <ImageView
             android:id="@+id/iv_image"

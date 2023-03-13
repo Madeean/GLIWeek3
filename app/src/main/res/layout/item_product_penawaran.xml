@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/cvPenawaran"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cvPenawaran"
     android:layout_width="170dp"
     android:layout_height="210dp"
     android:layout_gravity="center"
@@ -22,10 +22,11 @@
             android:layout_alignParentEnd="true"
             android:background="@drawable/card_diskon_product2"
             android:padding="5dp"
-            tools:text="13%"
             android:textColor="@color/white"
             android:textSize="16sp"
-            tools:ignore="RelativeOverlap" />
+            android:translationZ="2dp"
+            tools:ignore="RelativeOverlap"
+            tools:text="13%" />
 
         <ImageView
             android:id="@+id/iv_image"
@@ -47,9 +48,9 @@
             android:layout_marginHorizontal="15dp"
             android:ellipsize="end"
             android:maxLines="2"
-            tools:text="Indomie Goreng enak enak enak"
             android:textColor="@color/black"
-            android:textSize="13sp" />
+            android:textSize="13sp"
+            tools:text="Indomie Goreng enak enak enak" />
 
         <TextView
             android:id="@+id/tv_harga_diskon_product"
@@ -57,9 +58,9 @@
             android:layout_height="wrap_content"
             android:layout_above="@id/tv_harga_product"
             android:layout_marginHorizontal="15dp"
+            android:textColor="@color/gray"
             android:textSize="12sp"
-            tools:text="Rp 5000"
-            android:textColor="@color/gray" />
+            tools:text="Rp 5000" />
 
         <TextView
             android:id="@+id/tv_harga_product"
@@ -69,10 +70,10 @@
             android:layout_marginHorizontal="15dp"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="5dp"
-            tools:text="Rp. 50.000"
             android:textColor="@color/red"
             android:textSize="15sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="Rp. 50.000" />
 
         <TextView
 
@@ -82,14 +83,14 @@
             android:layout_alignParentBottom="true"
             android:layout_marginHorizontal="15dp"
             android:drawablePadding="5dp"
+            android:gravity="center_vertical"
             android:paddingBottom="5dp"
-            tools:text="Stok dari Toko"
             android:textColor="@color/black"
             android:textSize="10sp"
             android:textStyle="bold"
-            android:gravity="center_vertical"
             app:drawableStartCompat="@drawable/stok_toko"
-            tools:ignore="SmallSp" />
+            tools:ignore="SmallSp"
+            tools:text="Stok dari Toko" />
 
     </RelativeLayout>
 

@@ -39,7 +39,7 @@ object DiapersDatabase {
         10000,
         "MamyPoko Extra Dry Skin adalah salah satu varian dari merek popok bayi MamyPoko yang diklaim dirancang khusus untuk kulit bayi yang sensitif dan mudah iritasi. Produk ini menggunakan bahan-bahan yang lembut dan ramah kulit bayi, sehingga cocok untuk bayi yang memiliki kulit yang sensitif dan rentan terhadap iritasi. Selain itu, popok ini juga diklaim memiliki daya serap yang tinggi dan mampu menjaga kulit bayi tetap kering dan nyaman sepanjang hari, sehingga dapat membantu mengurangi risiko terjadinya ruam popok dan iritasi kulit pada bayi. Produk ini juga dilengkapi dengan fitur seperti perekat yang kuat dan elastis untuk memberikan kenyamanan dan perlindungan yang lebih baik bagi bayi.",
         "Toko",
-        5,"Uniliver"
+        0, "Uniliver"
     )
     val diapersDatabase4 = ProductModel(
         "Mamy Poko Standard",
@@ -51,6 +51,6 @@ object DiapersDatabase {
         10000,
         "MamyPoko Standard adalah salah satu varian dari merek popok bayi MamyPoko yang dirancang untuk memberikan kenyamanan dan perlindungan pada bayi. Popok ini memiliki daya serap yang baik dan dapat menahan kelembapan, sehingga dapat membantu mencegah kulit bayi dari iritasi akibat kelembapan yang berlebihan. Selain itu, popok ini juga dilengkapi dengan perekat yang kuat dan elastis, sehingga popok tetap aman dan tidak mudah bergeser saat bayi bergerak. Produk ini tersedia dalam berbagai ukuran yang dapat disesuaikan dengan kebutuhan dan tahap pertumbuhan bayi. Popok MamyPoko Standard cocok digunakan untuk bayi yang aktif dan sering bergerak.",
         "Toko",
-        5,"Mamy Poko"
+        5, "Mamy Poko"
     )
 }
