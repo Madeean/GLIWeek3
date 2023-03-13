@@ -4,29 +4,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray3">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/gray"
-        android:padding="15dp"
+        android:padding="@dimen/dimens2"
         tools:context=".DetailStoreActivity">
 
         <View
             android:id="@+id/v_container"
             android:layout_width="match_parent"
-            android:layout_height="180dp"
+            android:layout_height="@dimen/vw_height1"
             android:background="@drawable/detail_box"
-            android:elevation="3dp"
+            android:elevation="@dimen/ev1"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/iv_logo_detail"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:elevation="4dp"
+            android:layout_width="@dimen/iv_1"
+            android:layout_height="@dimen/iv_1"
+            android:layout_marginLeft="@dimen/dimens1"
+            android:elevation="@dimen/ev2"
             android:src="@drawable/uniliver_logo"
             app:layout_constraintBottom_toBottomOf="@id/v_container"
             app:layout_constraintStart_toStartOf="@id/v_container"
@@ -36,11 +36,11 @@
             android:id="@+id/tv_store_name_detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:elevation="4dp"
+            android:layout_marginLeft="@dimen/dimens0"
+            android:elevation="@dimen/ev2"
             android:text="UNILIVER"
             android:textColor="@color/black"
-            android:textSize="30dp"
+            android:textSize="30sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/v_container"
             app:layout_constraintStart_toEndOf="@id/iv_logo_detail"
@@ -51,10 +51,10 @@
             android:id="@+id/tv_semua_produk"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="@dimen/dimens3"
             android:text="Semua Produk"
             android:textColor="@color/black"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/v_container" />
@@ -63,7 +63,7 @@
             android:id="@+id/rv_store_product_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="@dimen/dimens2"
             app:layout_constraintTop_toBottomOf="@id/tv_semua_produk"
             tools:listitem="@layout/item_product" />
 

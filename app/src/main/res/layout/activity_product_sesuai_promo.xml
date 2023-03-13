@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/gray3">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -14,7 +15,7 @@
         <ImageView
             android:id="@+id/iv_banner_product"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/iv_2"
             android:src="@drawable/banner1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,7 @@
             android:id="@+id/rv_product_sesuai_promo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/dimens3"
             app:layout_constraintTop_toBottomOf="@id/iv_banner_product"
             tools:listitem="@layout/item_product" />
 

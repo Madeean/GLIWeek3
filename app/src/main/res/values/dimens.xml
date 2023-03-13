@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dimens0">50dp</dimen>
+    <dimen name="dimens1">30dp</dimen>
+    <dimen name="dimens2">15dp</dimen>
+    <dimen name="dimens3">10dp</dimen>
+    <dimen name="dimens4">5dp</dimen>
+    <dimen name="dimens5">20sp</dimen>
+    <dimen name="dimens6">8dp</dimen>
+
+    <dimen name="tz">2dp</dimen>
+    <dimen name="tv_sv">-5dp</dimen>
+
+    <dimen name="sv_height1">280dp</dimen>
+    <dimen name="sv_height2">180dp</dimen>
+
+    <dimen name="ev1">3dp</dimen>
+    <dimen name="ev2">4dp</dimen>
+    <dimen name="ev3">2dp</dimen>
+    <dimen name="ev4">5dp</dimen>
+
+    <dimen name="vw_height1">180dp</dimen>
+
+    <dimen name="iv_1">100dp</dimen>
+    <dimen name="iv_2">150dp</dimen>
+    <dimen name="iv_3">200dp</dimen>
+    <dimen name="iv_4">60dp</dimen>
+    <dimen name="iv_5">80dp</dimen>
+
+    <dimen name="svbtmrgin1">1.5dp</dimen>
+
+    <dimen name="rv_height1">230dp</dimen>
+
+    <dimen name="rad_1">12dp</dimen>
+    <dimen name="rad_2">18dp</dimen>
+
+    <dimen name="line">1dp</dimen>
+
+    <dimen name="cv_1">170dp</dimen>
+    <dimen name="cv_2">210dp</dimen>
+</resources>

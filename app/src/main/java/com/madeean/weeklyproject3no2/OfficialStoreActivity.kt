@@ -3,6 +3,7 @@ package com.madeean.weeklyproject3no2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.madeean.weeklyproject3no2.adapter.OfficialStoreAdapter
@@ -65,4 +66,5 @@ class OfficialStoreActivity : AppCompatActivity() {
             }
         })
     }
+
 }

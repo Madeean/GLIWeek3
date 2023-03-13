@@ -7,11 +7,11 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cv_item_promo_alfagift"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginHorizontal="10dp"
-        android:layout_marginVertical="15dp"
-        android:elevation="10dp"
-        app:cardCornerRadius="18dp"
+        android:layout_height="@dimen/iv_2"
+        android:layout_marginHorizontal="@dimen/dimens3"
+        android:layout_marginVertical="@dimen/dimens2"
+        android:elevation="@dimen/dimens2"
+        app:cardCornerRadius="@dimen/rad_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">

@@ -17,21 +17,25 @@
         tools:targetApi="31">
         <activity
             android:name=".DetailStoreActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".OfficialStoreActivity"/>
         <activity
             android:name=".OfficialStoreActivity"
             android:exported="false"
-            android:label="Official Store"/>
+            android:label="Official Store"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".DetailProductActivity"
             android:exported="false" />
         <activity
             android:name=".PenawaranActivity"
             android:exported="false"
-            android:label="Penawaran Terbaik" />
+            android:label="Penawaran Terbaik"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".ProductSesuaiPromoActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".PromoAlfagiftActivity" />
         <activity
             android:name=".PromoAlfagiftActivity"
             android:exported="false"

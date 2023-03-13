@@ -4,11 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="280dp"
+    android:layout_height="@dimen/sv_height1"
     android:layout_gravity="center"
-    android:layout_margin="5dp"
-    app:cardCornerRadius="12dp"
-    app:cardElevation="5dp">
+    android:layout_margin="@dimen/dimens4"
+    app:cardCornerRadius="@dimen/rad_1"
+    app:cardElevation="@dimen/ev4">
 
     <RelativeLayout
         android:id="@+id/rl_product"
@@ -21,8 +21,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:background="@drawable/card_diskon_product"
-            android:padding="5dp"
-            android:translationZ="2dp"
+            android:padding="@dimen/dimens4"
+            android:translationZ="@dimen/tz"
             android:textColor="@color/white"
             android:textSize="16sp"
             tools:ignore="RelativeOverlap"
@@ -30,10 +30,10 @@
 
         <ImageView
             android:id="@+id/iv_image"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="@dimen/iv_1"
+            android:layout_height="@dimen/iv_1"
             android:layout_centerHorizontal="true"
-            android:layout_margin="15dp"
+            android:layout_margin="@dimen/dimens2"
             android:contentDescription="@string/indomie_goreng"
             android:src="@drawable/indomie_goreng_png_0" />
 
@@ -42,7 +42,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/iv_image"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="@dimen/dimens2"
             android:ellipsize="end"
             android:maxLines="2"
             tools:text="Indomie Goreng\nenak enak enak"
@@ -63,8 +63,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_above="@id/stok_from"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginVertical="5dp"
+            android:layout_marginHorizontal="@dimen/dimens2"
+            android:layout_marginVertical="@dimen/dimens4"
             tools:text="Rp. 50.000"
             android:textColor="@color/red"
             android:textSize="20sp"
@@ -76,9 +76,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:layout_marginHorizontal="15dp"
-            android:drawablePadding="5dp"
-            android:paddingBottom="10dp"
+            android:layout_marginHorizontal="@dimen/dimens2"
+            android:drawablePadding="@dimen/dimens4"
+            android:paddingBottom="@dimen/dimens3"
             tools:text="Stok dari Toko"
             android:textColor="@color/black"
             android:textSize="14sp"

@@ -5,8 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gray"
-    android:paddingBottom="15dp"
+    android:background="@color/gray3"
+    android:paddingBottom="@dimen/dimens2"
     tools:context=".MainActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -16,13 +16,13 @@
     <com.smarteist.autoimageslider.SliderView
         android:id="@+id/slider_banner"
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:layout_marginHorizontal="15dp"
+        android:layout_height="@dimen/sv_height2"
+        android:layout_marginHorizontal="@dimen/dimens2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:sliderAnimationDuration="600"
-        app:sliderIndicatorMarginBottom="1.5dp"
+        app:sliderIndicatorMarginBottom="@dimen/svbtmrgin1"
         app:sliderIndicatorGravity="bottom|left"
         app:sliderIndicatorSelectedColor="@color/red"
         app:sliderIndicatorUnselectedColor="@color/darkGrey2"
@@ -32,8 +32,8 @@
         android:id="@+id/tv_lihat_semua_banner"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginBottom="-5dp"
+        android:layout_marginHorizontal="@dimen/dimens2"
+        android:layout_marginBottom="@dimen/tv_sv"
         android:text="@string/lihat_semua"
         android:textColor="@color/blue"
         android:textStyle="bold"
@@ -48,46 +48,46 @@
         android:src="@drawable/penawaran_background2"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
-        android:layout_marginVertical="10dp"
+        android:layout_marginVertical="@dimen/dimens3"
         app:layout_constraintTop_toBottomOf="@id/tv_lihat_semua_banner"
-        android:elevation="3dp"
+        android:elevation="@dimen/ev1"
         android:contentDescription="@string/background_penawaran" />
 
     <TextView
         android:id="@+id/tv_lihat_semua_penawaran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
+        android:layout_marginVertical="@dimen/dimens5"
         android:text="@string/lihat_semua"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:gravity="center_vertical"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginHorizontal="15dp"
+        android:layout_marginHorizontal="@dimen/dimens2"
         app:layout_constraintTop_toBottomOf="@id/tv_lihat_semua_banner"
-        android:elevation="3dp"
+        android:elevation="@dimen/ev1"
         app:drawableEndCompat="@drawable/key_arrow_right_white" />
 
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_penawaran_terbaik"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
-        android:layout_marginVertical="10dp"
+        android:layout_height="@dimen/rv_height1"
+        android:layout_marginVertical="@dimen/dimens3"
         app:layout_constraintTop_toBottomOf="@id/tv_lihat_semua_penawaran"
-        android:elevation="3dp"
+        android:elevation="@dimen/ev1"
         />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="@dimen/dimens5"
             android:text="@string/official_store"
             android:textColor="@color/darkGrey"
             android:textStyle="bold"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="@dimen/dimens2"
             app:layout_constraintTop_toBottomOf="@id/iv_penawaran_background" />
 
 
@@ -95,13 +95,13 @@
             android:id="@+id/tv_lihat_semua_official"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="20dp"
+            android:layout_marginVertical="@dimen/dimens5"
             android:text="@string/lihat_semua"
             android:gravity="center_vertical"
             android:textColor="@color/blue"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="@dimen/dimens2"
             app:layout_constraintTop_toBottomOf="@id/iv_penawaran_background"
             app:drawableEndCompat="@drawable/key_arrow_right" />
 
@@ -110,9 +110,9 @@
             android:id="@+id/rv_offical_store"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
+            android:layout_marginVertical="@dimen/dimens3"
             app:layout_constraintTop_toBottomOf="@id/tv_lihat_semua_official"
-            android:layout_marginHorizontal="15dp"
+            android:layout_marginHorizontal="@dimen/dimens2"
             />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
