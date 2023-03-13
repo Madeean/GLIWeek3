@@ -9,7 +9,7 @@ object DiapersDatabase {
             "https://cdn.kibrispdr.org/data/441/gambar-mamy-poko-0.jpg",
             "https://cdn.kibrispdr.org/data/441/gambar-mamy-poko-0.jpg"
         ),
-        6000,
+        null,
         10000,
         "MamyPoko Xtra Kering adalah merek populer popok bayi yang tersedia di pasaran. Produk ini diklaim memiliki daya serap yang tinggi dan dapat menjaga kulit bayi tetap kering dan nyaman sepanjang hari. Selain itu, popok ini juga dirancang dengan bahan-bahan yang aman dan nyaman untuk kulit bayi, serta dilengkapi dengan fitur seperti perekat yang kuat dan elastis agar dapat menyesuaikan dengan bentuk tubuh bayi. Produk ini sangat populer di beberapa negara Asia, terutama di Jepang dan Indonesia.",
         "Toko",
