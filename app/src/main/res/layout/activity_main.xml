@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray3"
-    android:paddingBottom="@dimen/dimens2"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:layout_marginBottom="@dimen/dimens2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
