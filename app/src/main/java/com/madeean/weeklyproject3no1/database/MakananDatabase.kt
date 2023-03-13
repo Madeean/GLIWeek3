@@ -49,7 +49,7 @@ object MakananDatabase {
         3000,
         "Sari Roti Tawar adalah salah satu jenis roti yang diproduksi oleh perusahaan Sari Roti. Roti ini terbuat dari bahan-bahan yang berkualitas seperti tepung terigu, gula, ragi, susu bubuk, mentega, dan air. Roti tawar Sari Roti dikenal dengan rasa yang lezat dan tekstur yang empuk, sehingga sangat cocok untuk dijadikan sebagai bahan dasar untuk membuat sandwich atau dicocol ke dalam saus favorit. Roti tawar Sari Roti biasanya dijual dalam kemasan plastik yang dapat langsung digunakan atau disimpan di dalam lemari es untuk menjaga kesegarannya. Roti tawar Sari Roti dapat dijadikan pilihan yang praktis dan lezat untuk sarapan atau camilan sehari-hari.",
         "Toko",
-        10
+        0
     )
     val makananDatabase5 = ProductModel(
         "Qtela Singkong Barbeque",
@@ -57,7 +57,7 @@ object MakananDatabase {
             "https://cdn.kibrispdr.org/data/521/gambar-qtela-singkong-0.jpg",
             "https://cdn.kibrispdr.org/data/521/gambar-qtela-singkong-0.jpg"
         ),
-        3000,
+        null,
         3000,
         "Qtela Singkong adalah makanan ringan atau camilan yang terbuat dari singkong yang diiris tipis dan dijadikan keripik, kemudian dicampur dengan bumbu rempah yang khas dan digoreng hingga kering dan renyah. Qtela Singkong berasal dari Indonesia dan biasanya dijadikan sebagai camilan yang enak dan lezat untuk dinikmati kapan saja, baik sebagai makanan ringan di antara waktu makan atau sebagai teman saat menonton acara televisi atau olahraga. Qtela Singkong juga populer di luar negeri dan bisa ditemukan di berbagai toko makanan internasional.",
         "Toko",

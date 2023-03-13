@@ -21,6 +21,9 @@ class AdapterDataProduct(
     private var listData: ArrayList<ProductModel>,
     private var context: Context
 ) : RecyclerView.Adapter<AdapterDataProduct.MakananViewHolder>() {
+    private fun formatter(n: Long): String =
+        DecimalFormat("#,###", DecimalFormatSymbols(Locale.GERMANY)).format(n)
+
     private lateinit var mlistener: OnItemClickListener
 
     interface OnItemClickListener {
@@ -63,12 +66,30 @@ class AdapterDataProduct(
     }
 
     override fun onBindViewHolder(holder: MakananViewHolder, position: Int) {
-        fun formatter(n: Long) =
-            DecimalFormat("#,###", DecimalFormatSymbols(Locale.GERMANY)).format(n)
 
         holder.tvNamaProduct.text = listData[position].productName
+
+        if (listData[position].stock <= 0) {
+            holder.tvHargaProduct.text = context.getString(R.string.stok_habis)
+            holder.tvHargaDiskon.visibility = View.INVISIBLE
+            holder.tvDiskon.visibility = View.INVISIBLE
+
+            showTvStockFrom(holder, position)
+
+            showImageProduct(holder, position)
+            return
+        }
+
+        if (listData[position].specialPrice == null) {
+            showSpesialPriceNull(holder, position)
+            return
+        }
+
 //        holder.tvHargaProduct.text = listData[position].normalPrice.toString()
-        if ((listData[position].specialPrice ?: 0) < listData[position].normalPrice) {
+
+        if ((listData[position].specialPrice
+                ?: 0) < listData[position].normalPrice
+        ) {
             holder.tvHargaDiskon.text =
                 context.getString(R.string.format_harga, formatter(listData[position].normalPrice))
             holder.tvHargaDiskon.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
@@ -113,6 +134,32 @@ class AdapterDataProduct(
                 )
             )
 
+        showTvStockFrom(holder, position)
+        showImageProduct(holder, position)
+
+    }
+
+    private fun showImageProduct(holder: MakananViewHolder, position: Int) {
+        Glide.with(context)
+            .load(listData[position].productImage[0])
+            .into(holder.ivProduct)
+    }
+
+    private fun showSpesialPriceNull(holder: MakananViewHolder, position: Int) {
+        holder.tvHargaDiskon.visibility = View.INVISIBLE
+        holder.tvDiskon.visibility = View.INVISIBLE
+        holder.tvHargaProduct.text =
+            context.getString(
+                R.string.format_harga, formatter(
+                    listData[position].normalPrice
+                )
+            )
+
+        showTvStockFrom(holder, position)
+        showImageProduct(holder, position)
+    }
+
+    private fun showTvStockFrom(holder: MakananViewHolder, position: Int) {
         holder.tvStockFrom.text =
             context.getString(R.string.stok_from, listData[position].stockFrom)
         when (listData[position].stockFrom) {
@@ -142,10 +189,6 @@ class AdapterDataProduct(
                 )
             }
         }
-
-        Glide.with(context)
-            .load(listData[position].productImage[0])
-            .into(holder.ivProduct)
     }
 
     override fun getItemCount(): Int {
