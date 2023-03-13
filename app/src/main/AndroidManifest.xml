@@ -18,7 +18,8 @@
         <activity
             android:name=".DetailStoreActivity"
             android:exported="false"
-            android:parentActivityName=".OfficialStoreActivity"/>
+            android:parentActivityName=".OfficialStoreActivity"
+            android:label="Official Store Detail"/>
         <activity
             android:name=".OfficialStoreActivity"
             android:exported="false"
