@@ -20,7 +20,10 @@ import kotlin.collections.ArrayList
 class PenawaranProductAdapter(
     private var listData: ArrayList<ProductModel>,
     private var context: Context
-): RecyclerView.Adapter<PenawaranProductAdapter.ProductAdapterViewHolder>() {
+) : RecyclerView.Adapter<PenawaranProductAdapter.ProductAdapterViewHolder>() {
+    private fun formatter(n: Long) =
+        DecimalFormat("#,###", DecimalFormatSymbols(Locale.GERMANY)).format(n)
+
     private lateinit var itemListener: OnItemClickListener
 
     interface OnItemClickListener {
@@ -31,7 +34,11 @@ class PenawaranProductAdapter(
         itemListener = listener
     }
 
-    class ProductAdapterViewHolder(itemView: View,listener: OnItemClickListener, listData: ArrayList<ProductModel>) : RecyclerView.ViewHolder(itemView) {
+    class ProductAdapterViewHolder(
+        itemView: View,
+        listener: OnItemClickListener,
+        listData: ArrayList<ProductModel>
+    ) : RecyclerView.ViewHolder(itemView) {
         val ivProduct: ImageView = itemView.findViewById(R.id.iv_image)
         val tvNamaProduct: TextView = itemView.findViewById(R.id.tv_nama_product)
         val tvHargaProduct: TextView = itemView.findViewById(R.id.tv_harga_product)
@@ -48,20 +55,51 @@ class PenawaranProductAdapter(
         }
     }
 
+    private fun showSpesialPriceNull(holder: ProductAdapterViewHolder, position: Int) {
+        holder.tvHargaDiskon.visibility = View.INVISIBLE
+        holder.tvDiskon.visibility = View.INVISIBLE
+        holder.tvHargaProduct.text =
+            context.getString(
+                R.string.format_harga, formatter(
+                    listData[position].normalPrice
+                )
+            )
+
+        showTvStockFrom(holder, position)
+        showImageProduct(holder, position)
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductAdapterViewHolder {
         val view: View =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.item_product_penawaran, parent, false)
-        return ProductAdapterViewHolder(view,itemListener,listData)
+        return ProductAdapterViewHolder(view, itemListener, listData)
     }
 
     override fun onBindViewHolder(holder: ProductAdapterViewHolder, position: Int) {
-        fun formatter(n: Long) =
-            DecimalFormat("#,###", DecimalFormatSymbols(Locale.GERMANY)).format(n)
-
         holder.tvNamaProduct.text = listData[position].productName
+
+        if (listData[position].stock <= 0) {
+            holder.tvHargaProduct.text = context.getString(R.string.stok_habis)
+            holder.tvHargaDiskon.visibility = View.INVISIBLE
+            holder.tvDiskon.visibility = View.INVISIBLE
+
+            showTvStockFrom(holder, position)
+
+            showImageProduct(holder, position)
+            return
+        }
+
+        if (listData[position].specialPrice == null) {
+            showSpesialPriceNull(holder, position)
+            return
+        }
+
 //        holder.tvHargaProduct.text = listData[position].normalPrice.toString()
-        if ((listData[position].specialPrice ?: 0) < listData[position].normalPrice) {
+
+        if ((listData[position].specialPrice
+                ?: 0) < listData[position].normalPrice
+        ) {
             holder.tvHargaDiskon.text =
                 context.getString(R.string.format_harga, formatter(listData[position].normalPrice))
             holder.tvHargaDiskon.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
@@ -77,11 +115,11 @@ class PenawaranProductAdapter(
 
             val hargaAsli = listData[position].normalPrice
             val hargaDiskon = listData[position].specialPrice ?: 0
-            var finalDiskon = 0
+            var diskon = 0
 
             try {
                 val hitungDiskon: Double = (hargaAsli - hargaDiskon) / hargaAsli.toDouble() * 100
-                finalDiskon = hitungDiskon.toInt()
+                diskon = hitungDiskon.toInt()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -90,9 +128,9 @@ class PenawaranProductAdapter(
 //                ?: 0)) / listData[position].normalPrice) * 100
 
             holder.tvDiskon.text = buildString {
-        append(finalDiskon)
-        append("%")
-    }
+                append(diskon)
+                append("%")
+            }
         } else {
             holder.tvHargaDiskon.visibility = View.INVISIBLE
             holder.tvDiskon.visibility = View.INVISIBLE
@@ -106,6 +144,17 @@ class PenawaranProductAdapter(
                 )
             )
 
+        showTvStockFrom(holder, position)
+        showImageProduct(holder, position)
+    }
+
+    private fun showImageProduct(holder: ProductAdapterViewHolder, position: Int) {
+        Glide.with(context)
+            .load(listData[position].productImage[0])
+            .into(holder.ivProduct)
+    }
+
+    private fun showTvStockFrom(holder: ProductAdapterViewHolder, position: Int) {
         holder.tvStockFrom.text =
             context.getString(R.string.stok_from, listData[position].stockFrom)
         when (listData[position].stockFrom) {
@@ -134,10 +183,6 @@ class PenawaranProductAdapter(
                 )
             }
         }
-
-        Glide.with(context)
-            .load(listData[position].productImage[0])
-            .into(holder.ivProduct)
     }
 
     override fun getItemCount(): Int {
