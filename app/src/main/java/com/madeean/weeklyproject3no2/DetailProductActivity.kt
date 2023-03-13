@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.madeean.weeklyproject3no2.Utils.INTENT_DATA
 import com.madeean.weeklyproject3no2.adapter.SliderImageAdapter
 import com.madeean.weeklyproject3no2.model.ProductModel
@@ -82,6 +83,25 @@ class DetailProductActivity : AppCompatActivity() {
     private fun setView(data: ProductModel) {
         tvNamaProduct.text = data.productName
         tvDeskripsi.text = data.productDescription
+
+        if (data.stock <= 0) {
+            tvHargaProduct.text = getString(R.string.stok_habis)
+            tvHargaDiskonProduct.visibility = View.INVISIBLE
+            tvDiskon.visibility = View.INVISIBLE
+            tvStokFrom.visibility = View.INVISIBLE
+
+            showTvStockFrom(data)
+            return
+        }
+
+        if (data.specialPrice == null) {
+            showSpecialPriceNull(data)
+            showTvStockFrom(data)
+            return
+        }
+
+
+
         if ((data.specialPrice ?: 0) < data.normalPrice) {
             tvHargaDiskonProduct.text =
                 getString(R.string.format_harga, formatter(data.normalPrice))
@@ -123,11 +143,18 @@ class DetailProductActivity : AppCompatActivity() {
                 )
             )
 
+        showTvStockFrom(data)
+
+    }
+
+
+    private fun showTvStockFrom(data: ProductModel) {
         tvStokFrom.text =
             getString(R.string.stok_from, data.stockFrom)
 
         when (data.stockFrom) {
             "Toko" -> {
+                //            set drawable start
                 tvStokFrom.setCompoundDrawablesWithIntrinsicBounds(
                     R.drawable.stok_toko,
                     0,
@@ -152,6 +179,19 @@ class DetailProductActivity : AppCompatActivity() {
                 )
             }
         }
-
     }
+
+    private fun showSpecialPriceNull(data: ProductModel) {
+        tvHargaDiskonProduct.visibility = View.INVISIBLE
+        tvDiskon.visibility = View.INVISIBLE
+        tvHargaProduct.text =
+            getString(
+                R.string.format_harga, formatter(
+                    data.normalPrice
+                )
+            )
+        
+    }
+
+
 }

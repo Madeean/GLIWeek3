@@ -21,6 +21,9 @@ class ProductAdapter(
     private var listData: ArrayList<ProductModel>,
     private var context: Context
 ) : RecyclerView.Adapter<ProductAdapter.ProductAdapterViewHolder>() {
+    private fun formatter(n: Long) =
+        DecimalFormat("#,###", DecimalFormatSymbols(Locale.GERMANY)).format(n)
+
     private lateinit var itemListener: OnItemClickListener
 
     interface OnItemClickListener {
@@ -60,12 +63,30 @@ class ProductAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductAdapterViewHolder, position: Int) {
-        fun formatter(n: Long) =
-            DecimalFormat("#,###", DecimalFormatSymbols(Locale.GERMANY)).format(n)
 
         holder.tvNamaProduct.text = listData[position].productName
+
+        if (listData[position].stock <= 0) {
+            holder.tvHargaProduct.text = context.getString(R.string.stok_habis)
+            holder.tvHargaDiskon.visibility = View.INVISIBLE
+            holder.tvDiskon.visibility = View.INVISIBLE
+
+            showTvStockFrom(holder, position)
+
+            showImageProduct(holder, position)
+            return
+        }
+
+        if (listData[position].specialPrice == null) {
+            showSpesialPriceNull(holder, position)
+            return
+        }
+
 //        holder.tvHargaProduct.text = listData[position].normalPrice.toString()
-        if ((listData[position].specialPrice ?: 0) < listData[position].normalPrice) {
+
+        if ((listData[position].specialPrice
+                ?: 0) < listData[position].normalPrice
+        ) {
             holder.tvHargaDiskon.text =
                 context.getString(R.string.format_harga, formatter(listData[position].normalPrice))
             holder.tvHargaDiskon.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
@@ -81,11 +102,11 @@ class ProductAdapter(
 
             val hargaAsli = listData[position].normalPrice
             val hargaDiskon = listData[position].specialPrice ?: 0
-            var finalDiskon = 0
+            var diskon = 0
 
             try {
                 val hitungDiskon: Double = (hargaAsli - hargaDiskon) / hargaAsli.toDouble() * 100
-                finalDiskon = hitungDiskon.toInt()
+                diskon = hitungDiskon.toInt()
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -94,9 +115,9 @@ class ProductAdapter(
 //                ?: 0)) / listData[position].normalPrice) * 100
 
             holder.tvDiskon.text = buildString {
-        append(finalDiskon)
-        append("%")
-    }
+                append(diskon)
+                append("%")
+            }
         } else {
             holder.tvHargaDiskon.visibility = View.INVISIBLE
             holder.tvDiskon.visibility = View.INVISIBLE
@@ -110,10 +131,36 @@ class ProductAdapter(
                 )
             )
 
+        showTvStockFrom(holder, position)
+        showImageProduct(holder, position)
+    }
+
+    private fun showImageProduct(holder: ProductAdapterViewHolder, position: Int) {
+        Glide.with(context)
+            .load(listData[position].productImage[0])
+            .into(holder.ivProduct)
+    }
+
+    private fun showSpesialPriceNull(holder: ProductAdapterViewHolder, position: Int) {
+        holder.tvHargaDiskon.visibility = View.INVISIBLE
+        holder.tvDiskon.visibility = View.INVISIBLE
+        holder.tvHargaProduct.text =
+            context.getString(
+                R.string.format_harga, formatter(
+                    listData[position].normalPrice
+                )
+            )
+
+        showTvStockFrom(holder, position)
+        showImageProduct(holder, position)
+    }
+
+    private fun showTvStockFrom(holder: ProductAdapterViewHolder, position: Int) {
         holder.tvStockFrom.text =
             context.getString(R.string.stok_from, listData[position].stockFrom)
         when (listData[position].stockFrom) {
             "Toko" -> {
+                //            set drawable start
                 holder.tvStockFrom.setCompoundDrawablesWithIntrinsicBounds(
                     R.drawable.stok_toko,
                     0,
@@ -138,10 +185,6 @@ class ProductAdapter(
                 )
             }
         }
-
-        Glide.with(context)
-            .load(listData[position].productImage[0])
-            .into(holder.ivProduct)
     }
 
     override fun getItemCount(): Int {
